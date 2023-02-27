@@ -1,21 +1,21 @@
+import Actions from "./Actions";
+import Message from "./Message";
+import ProfileImage from "./ProfileImage";
+import Timestamp from "./Timestamp";
+import User from "./User";
 
-function Tweet() {
+
+function Tweet({tweet}) {
+  const{user, timestamp, message} = tweet
   return (
     <div className="tweet">
-      <img
-        src="https://i.imgur.com/9yw1Fyw.jpg"
-        className="profile"
-        alt="profile"
+      <ProfileImage image={user.image}
       />
 
       <div className="body">
         <div className="top">
-          <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
-          </span>
-
-          <span className="timestamp">Nov 30, 2020</span>
+          <User name={user.name} handle={user.handle}/>
+          <Timestamp timestamp={timestamp} />
         </div>
 
         <p className="message">
